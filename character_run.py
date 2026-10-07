@@ -61,10 +61,14 @@ hide_cursor()
 
 
 while running:
-    action = ACTION_RUN_RIGHT
     if is_moving:
         if look_dir > 0:
             action = ACTION_RUN_RIGHT
+        else:
+            action = ACTION_RUN_LEFT
+    else:
+        if look_dir > 0:
+            action = ACTION_IDLE_RIGHT
         else:
             action = ACTION_RUN_LEFT
 
