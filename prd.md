@@ -44,8 +44,8 @@
   - 프레임 크기: `100 x 100`, 총 8프레임(0~7)
   - `bottom = 100`: 오른쪽 달리기 (RUN RIGHT)
   - `bottom = 0`: 왼쪽 달리기 (RUN LEFT)
-  - `bottom = 200`: 오른쪽 대기 (IDLE RIGHT)
-  - `bottom = 300`: 왼쪽 대기 (IDLE LEFT)
+  - `bottom = 300`: 오른쪽 대기 (IDLE RIGHT)
+  - `bottom = 200`: 왼쪽 대기 (IDLE LEFT)
 - **시선 방향(Facing Direction) 관리**:
   - 좌/우 이동 시 해당 방향으로 시선 갱신 (`look_dir = RIGHT` 또는 `LEFT`)
   - **상/하 이동 시**: 기존 바라보던 시선 방향(`look_dir`)을 유지한 채 달리기 애니메이션 재생
