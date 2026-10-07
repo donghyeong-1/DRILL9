@@ -49,6 +49,7 @@ frame = 0
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 dir_x = 0
 dir_y = 0
+look_dir = 1  # 1: 우측, -1: 좌측
 hide_cursor()
 
 
