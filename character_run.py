@@ -7,7 +7,7 @@ CHARACTER_WIDTH, CHARACTER_HEIGHT = 100, 100
 SPEED = 5
 
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
-tuk_gruond = load_image('TUK_GROUND.png')
+tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
 
 
@@ -38,7 +38,7 @@ while running:
     clear_canvas()
 
     # fill here
-    tuk_gruond.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
+    tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     character.clip_draw(frame * 100, 100 * 1, 100, 100, x, y)
 
 
