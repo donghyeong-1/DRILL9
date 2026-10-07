@@ -60,6 +60,14 @@ while running:
     handle_events()
     x += dir_x * SPEED
     y += dir_y * SPEED
+
+    # x축 화면 경계 제한
+    half_w = CHARACTER_WIDTH // 2
+    if x < half_w:
+        x = half_w
+    elif x > TUK_WIDTH - half_w:
+        x = TUK_WIDTH - half_w
+
     frame = (frame + 1) % 8
     delay(0.05)
 
