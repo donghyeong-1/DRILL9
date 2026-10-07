@@ -21,6 +21,13 @@ def clamp(val, min_val, max_val):
     return max(min_val, min(val, max_val))
 
 
+def get_character_action(is_moving, look_dir):
+    if is_moving:
+        return ACTION_RUN_RIGHT if look_dir > 0 else ACTION_RUN_LEFT
+    else:
+        return ACTION_IDLE_RIGHT if look_dir > 0 else ACTION_IDLE_LEFT
+
+
 def handle_events():
     global running, dir_x, dir_y
 
@@ -61,16 +68,7 @@ hide_cursor()
 
 
 while running:
-    if is_moving:
-        if look_dir > 0:
-            action = ACTION_RUN_RIGHT
-        else:
-            action = ACTION_RUN_LEFT
-    else:
-        if look_dir > 0:
-            action = ACTION_IDLE_RIGHT
-        else:
-            action = ACTION_IDLE_LEFT
+    action = get_character_action(is_moving, look_dir)
 
     clear_canvas()
 
