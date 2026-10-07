@@ -66,11 +66,12 @@ while running:
     x += dir_x * SPEED
     y += dir_y * SPEED
 
-    # 시선 방향 갱신: 좌우 이동 시 변경
+    # 시선 방향 갱신: 좌우 이동 시 변경, 상하 이동 시에는 직전 좌우 시선(look_dir) 유지
     if dir_x > 0:
         look_dir = 1
     elif dir_x < 0:
         look_dir = -1
+    # dir_x == 0인 경우(상하 이동 또는 정지) 기존 look_dir 유지
 
     # 화면 경계 제한 (clamp 함수 적용)
     half_w = CHARACTER_WIDTH // 2
