@@ -6,6 +6,12 @@ TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 CHARACTER_WIDTH, CHARACTER_HEIGHT = 100, 100
 SPEED = 5
 
+# 스프라이트 시트 액션별 bottom y좌표 상수
+ACTION_RUN_RIGHT = 100
+ACTION_RUN_LEFT = 0
+ACTION_IDLE_RIGHT = 200
+ACTION_IDLE_LEFT = 300
+
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
