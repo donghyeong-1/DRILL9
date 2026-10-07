@@ -49,6 +49,7 @@ while running:
 
     update_canvas()
     handle_events()
+    x += dir_x * SPEED
     frame = (frame + 1) % 8
     delay(0.05)
 
