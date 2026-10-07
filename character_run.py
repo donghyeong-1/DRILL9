@@ -73,6 +73,9 @@ while running:
         look_dir = -1
     # dir_x == 0인 경우(상하 이동 또는 정지) 기존 look_dir 유지
 
+    # 이동 여부 판별 (IDLE 상태 또는 이동 애니메이션 결정)
+    is_moving = (dir_x != 0 or dir_y != 0)
+
     # 화면 경계 제한 (clamp 함수 적용)
     half_w = CHARACTER_WIDTH // 2
     half_h = CHARACTER_HEIGHT // 2
