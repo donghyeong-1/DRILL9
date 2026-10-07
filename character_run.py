@@ -5,6 +5,7 @@ from pico2d import *
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 CHARACTER_WIDTH, CHARACTER_HEIGHT = 100, 100
 SPEED = 5
+FRAME_DELAY = 0.05
 
 # 스프라이트 시트 액션별 bottom y좌표 상수
 ACTION_RUN_RIGHT = 100
@@ -104,7 +105,7 @@ while running:
     render_scene()
     handle_events()
     update_character()
-    delay(0.05)
+    delay(FRAME_DELAY)
 
 close_canvas()
 
