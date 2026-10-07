@@ -11,6 +11,10 @@ tuk_ground = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
 
 
+def clamp(val, min_val, max_val):
+    return max(min_val, min(val, max_val))
+
+
 def handle_events():
     global running, dir_x, dir_y
 
@@ -61,19 +65,11 @@ while running:
     x += dir_x * SPEED
     y += dir_y * SPEED
 
-    # x축 화면 경계 제한
+    # 화면 경계 제한 (clamp 함수 적용)
     half_w = CHARACTER_WIDTH // 2
-    if x < half_w:
-        x = half_w
-    elif x > TUK_WIDTH - half_w:
-        x = TUK_WIDTH - half_w
-
-    # y축 화면 경계 제한
     half_h = CHARACTER_HEIGHT // 2
-    if y < half_h:
-        y = half_h
-    elif y > TUK_HEIGHT - half_h:
-        y = TUK_HEIGHT - half_h
+    x = clamp(x, half_w, TUK_WIDTH - half_w)
+    y = clamp(y, half_h, TUK_HEIGHT - half_h)
 
     frame = (frame + 1) % 8
     delay(0.05)
