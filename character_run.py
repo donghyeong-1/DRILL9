@@ -68,6 +68,13 @@ while running:
     elif x > TUK_WIDTH - half_w:
         x = TUK_WIDTH - half_w
 
+    # y축 화면 경계 제한
+    half_h = CHARACTER_HEIGHT // 2
+    if y < half_h:
+        y = half_h
+    elif y > TUK_HEIGHT - half_h:
+        y = TUK_HEIGHT - half_h
+
     frame = (frame + 1) % 8
     delay(0.05)
 
