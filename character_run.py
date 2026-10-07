@@ -70,7 +70,7 @@ while running:
         if look_dir > 0:
             action = ACTION_IDLE_RIGHT
         else:
-            action = ACTION_RUN_LEFT
+            action = ACTION_IDLE_LEFT
 
     clear_canvas()
 
