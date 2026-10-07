@@ -57,6 +57,30 @@ def handle_events():
                 dir_y += 1
 
 
+def update_character():
+    global x, y, look_dir, is_moving, frame
+
+    x += dir_x * SPEED
+    y += dir_y * SPEED
+
+    # 시선 방향 갱신: 좌우 이동 시 변경, 상하 이동 시 직전 좌우 시선(look_dir) 유지
+    if dir_x > 0:
+        look_dir = 1
+    elif dir_x < 0:
+        look_dir = -1
+
+    # 이동 여부 판별 (IDLE 상태 또는 이동 애니메이션 결정)
+    is_moving = (dir_x != 0 or dir_y != 0)
+
+    # 화면 경계 제한 (clamp 함수 적용)
+    half_w = CHARACTER_WIDTH // 2
+    half_h = CHARACTER_HEIGHT // 2
+    x = clamp(x, half_w, TUK_WIDTH - half_w)
+    y = clamp(y, half_h, TUK_HEIGHT - half_h)
+
+    frame = (frame + 1) % 8
+
+
 running = True
 frame = 0
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
@@ -77,26 +101,7 @@ while running:
 
     update_canvas()
     handle_events()
-    x += dir_x * SPEED
-    y += dir_y * SPEED
-
-    # 시선 방향 갱신: 좌우 이동 시 변경, 상하 이동 시에는 직전 좌우 시선(look_dir) 유지
-    if dir_x > 0:
-        look_dir = 1
-    elif dir_x < 0:
-        look_dir = -1
-    # dir_x == 0인 경우(상하 이동 또는 정지) 기존 look_dir 유지
-
-    # 이동 여부 판별 (IDLE 상태 또는 이동 애니메이션 결정)
-    is_moving = (dir_x != 0 or dir_y != 0)
-
-    # 화면 경계 제한 (clamp 함수 적용)
-    half_w = CHARACTER_WIDTH // 2
-    half_h = CHARACTER_HEIGHT // 2
-    x = clamp(x, half_w, TUK_WIDTH - half_w)
-    y = clamp(y, half_h, TUK_HEIGHT - half_h)
-
-    frame = (frame + 1) % 8
+    update_character()
     delay(0.05)
 
 close_canvas()
