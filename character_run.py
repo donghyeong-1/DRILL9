@@ -36,6 +36,7 @@ running = True
 frame = 0
 x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 dir_x = 0
+dir_y = 0
 hide_cursor()
 
 
