@@ -56,16 +56,19 @@ x, y = TUK_WIDTH // 2, TUK_HEIGHT // 2
 dir_x = 0
 dir_y = 0
 look_dir = 1  # 1: 우측, -1: 좌측
+is_moving = False
 hide_cursor()
 
 
 while running:
+    action = ACTION_RUN_RIGHT
+    if is_moving and look_dir > 0:
+        action = ACTION_RUN_RIGHT
+
     clear_canvas()
 
-    # fill here
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
-    character.clip_draw(frame * 100, 100 * 1, 100, 100, x, y)
-
+    character.clip_draw(frame * CHARACTER_WIDTH, action, CHARACTER_WIDTH, CHARACTER_HEIGHT, x, y)
 
     update_canvas()
     handle_events()
