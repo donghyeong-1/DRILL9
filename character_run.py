@@ -62,8 +62,11 @@ hide_cursor()
 
 while running:
     action = ACTION_RUN_RIGHT
-    if is_moving and look_dir > 0:
-        action = ACTION_RUN_RIGHT
+    if is_moving:
+        if look_dir > 0:
+            action = ACTION_RUN_RIGHT
+        else:
+            action = ACTION_RUN_LEFT
 
     clear_canvas()
 
