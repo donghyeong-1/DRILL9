@@ -1,9 +1,11 @@
 from pico2d import *
 
 
-# fill here
-
+# 화면 및 캐릭터 설정 상수
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
+CHARACTER_WIDTH, CHARACTER_HEIGHT = 100, 100
+SPEED = 5
+
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_gruond = load_image('TUK_GROUND.png')
 character = load_image('animation_sheet.png')
