@@ -91,15 +91,17 @@ is_moving = False
 hide_cursor()
 
 
-while running:
+def render_scene():
     action = get_character_action(is_moving, look_dir)
 
     clear_canvas()
-
     tuk_ground.draw(TUK_WIDTH // 2, TUK_HEIGHT // 2)
     character.clip_draw(frame * CHARACTER_WIDTH, action, CHARACTER_WIDTH, CHARACTER_HEIGHT, x, y)
-
     update_canvas()
+
+
+while running:
+    render_scene()
     handle_events()
     update_character()
     delay(0.05)
